@@ -23,15 +23,13 @@ from scipy.io import wavfile
 
 # from models import SynthesizerTrn256#hifigan_nonsf
 # from infer_pack.models import SynthesizerTrn256NSF as SynthesizerTrn256#hifigan_nsf
-from infer_pack.models import \
-    SynthesizerTrnMs256NSFsid as SynthesizerTrn256  # hifigan_nsf
+from infer_pack.models import (
+    SynthesizerTrnMs256NSFsid as SynthesizerTrn256,
+)  # hifigan_nsf
 
 # from infer_pack.models import SynthesizerTrnMs256NSFsid_sim as SynthesizerTrn256#hifigan_nsf
 # from models import SynthesizerTrn256NSFsim as SynthesizerTrn256#hifigan_nsf
 # from models import SynthesizerTrn256NSFsimFlow as SynthesizerTrn256#hifigan_nsf
-
-
-
 
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")

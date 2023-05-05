@@ -20,9 +20,9 @@ import torchaudio.transforms as tat
 from fairseq import checkpoint_utils
 
 from i18n import I18nAuto
+
 # import matplotlib.pyplot as plt
-from infer_pack.models import (SynthesizerTrnMs256NSFsid,
-                               SynthesizerTrnMs256NSFsid_nono)
+from infer_pack.models import SynthesizerTrnMs256NSFsid, SynthesizerTrnMs256NSFsid_nono
 
 i18n = I18nAuto()
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")

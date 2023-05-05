@@ -84,12 +84,10 @@ from fairseq import checkpoint_utils
 from scipy.io import wavfile
 
 from config import Config
-from infer_pack.models import (SynthesizerTrnMs256NSFsid,
-                               SynthesizerTrnMs256NSFsid_nono)
+from infer_pack.models import SynthesizerTrnMs256NSFsid, SynthesizerTrnMs256NSFsid_nono
 from infer_uvr5 import _audio_pre_
 from my_utils import load_audio
-from train.process_ckpt import (change_info, extract_small_model, merge,
-                                show_info)
+from train.process_ckpt import change_info, extract_small_model, merge, show_info
 from vc_infer_pipeline import VC
 
 config = Config()

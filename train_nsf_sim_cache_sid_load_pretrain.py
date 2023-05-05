@@ -25,9 +25,13 @@ from time import time as ttime
 
 import torch.distributed as dist
 import torch.multiprocessing as mp
-from data_utils import (DistributedBucketSampler, TextAudioCollate,
-                        TextAudioCollateMultiNSFsid, TextAudioLoader,
-                        TextAudioLoaderMultiNSFsid)
+from data_utils import (
+    DistributedBucketSampler,
+    TextAudioCollate,
+    TextAudioCollateMultiNSFsid,
+    TextAudioLoader,
+    TextAudioLoaderMultiNSFsid,
+)
 from losses import discriminator_loss, feature_loss, generator_loss, kl_loss
 from mel_processing import mel_spectrogram_torch, spec_to_mel_torch
 from torch import nn, optim
@@ -38,9 +42,11 @@ from torch.utils.data import DataLoader
 from torch.utils.tensorboard import SummaryWriter
 
 from infer_pack import commons
-from infer_pack.models import (MultiPeriodDiscriminator,
-                               SynthesizerTrnMs256NSFsid,
-                               SynthesizerTrnMs256NSFsid_nono)
+from infer_pack.models import (
+    MultiPeriodDiscriminator,
+    SynthesizerTrnMs256NSFsid,
+    SynthesizerTrnMs256NSFsid_nono,
+)
 
 global_step = 0
 
