@@ -1,4 +1,7 @@
-import sys, os, multiprocessing
+import multiprocessing
+import os
+import sys
+
 from scipy import signal
 
 now_dir = os.getcwd()
@@ -9,12 +12,16 @@ sr = int(sys.argv[2])
 n_p = int(sys.argv[3])
 exp_dir = sys.argv[4]
 noparallel = sys.argv[5] == "True"
-import numpy as np, os, traceback
-from slicer2 import Slicer
-import librosa, traceback
-from scipy.io import wavfile
 import multiprocessing
+import os
+import traceback
+
+import librosa
+import numpy as np
+from scipy.io import wavfile
+
 from my_utils import load_audio
+from slicer2 import Slicer
 
 mutex = multiprocessing.Lock()
 f = open("%s/preprocess.log" % exp_dir, "a+")

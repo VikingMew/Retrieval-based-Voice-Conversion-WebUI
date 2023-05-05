@@ -1,11 +1,19 @@
+import os
+import pdb
+import shutil
+import sys
+import threading
+import traceback
+import warnings
 from multiprocessing import cpu_count
-import threading, pdb, librosa
-from time import sleep
+from random import shuffle
 from subprocess import Popen
 from time import sleep
-import torch, os, traceback, sys, warnings, shutil, numpy as np
+
 import faiss
-from random import shuffle
+import librosa
+import numpy as np
+import torch
 
 now_dir = os.getcwd()
 sys.path.append(now_dir)
@@ -17,8 +25,9 @@ os.makedirs(os.path.join(now_dir, "weights"), exist_ok=True)
 os.environ["TEMP"] = tmp
 warnings.filterwarnings("ignore")
 torch.manual_seed(114514)
-from i18n import I18nAuto
 import ffmpeg
+
+from i18n import I18nAuto
 
 i18n = I18nAuto()
 # 判断是否有能用来训练和加速推理的N卡
@@ -68,16 +77,20 @@ else:
     gpu_info = i18n("很遗憾您这没有能用的显卡来支持您训练")
     default_batch_size = 1
 gpus = "-".join([i[0] for i in gpu_infos])
-from infer_pack.models import SynthesizerTrnMs256NSFsid, SynthesizerTrnMs256NSFsid_nono
-from scipy.io import wavfile
-from fairseq import checkpoint_utils
-import gradio as gr
 import logging
-from vc_infer_pipeline import VC
+
+import gradio as gr
+from fairseq import checkpoint_utils
+from scipy.io import wavfile
+
 from config import Config
+from infer_pack.models import (SynthesizerTrnMs256NSFsid,
+                               SynthesizerTrnMs256NSFsid_nono)
 from infer_uvr5 import _audio_pre_
 from my_utils import load_audio
-from train.process_ckpt import show_info, change_info, merge, extract_small_model
+from train.process_ckpt import (change_info, extract_small_model, merge,
+                                show_info)
+from vc_infer_pipeline import VC
 
 config = Config()
 # from trainset_preprocess_pipeline import PreProcess
@@ -947,8 +960,8 @@ def change_info_(ckpt_path):
         return {"__type__": "update"}, {"__type__": "update"}
 
 
-from infer_pack.models_onnx_moess import SynthesizerTrnMs256NSFsidM
 from infer_pack.models_onnx import SynthesizerTrnMs256NSFsidO
+from infer_pack.models_onnx_moess import SynthesizerTrnMs256NSFsidM
 
 
 def export_onnx(ModelPath, ExportedPath, MoeVS=True):

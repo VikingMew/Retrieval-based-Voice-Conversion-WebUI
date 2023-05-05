@@ -1,8 +1,9 @@
 import argparse
 import glob
 import sys
-import torch
 from multiprocessing import cpu_count
+
+import torch
 
 
 class Config:

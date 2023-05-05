@@ -1,8 +1,13 @@
-import os, traceback, sys, parselmouth
+import logging
+import os
+import sys
+import traceback
+
 import librosa
+import numpy as np
+import parselmouth
 import pyworld
 from scipy.io import wavfile
-import numpy as np, logging
 
 logging.getLogger("numba").setLevel(logging.WARNING)
 from multiprocessing import Process

@@ -1,12 +1,12 @@
 import copy
 import math
+
 import numpy as np
 import torch
 from torch import nn
 from torch.nn import functional as F
 
-from infer_pack import commons
-from infer_pack import modules
+from infer_pack import commons, modules
 from infer_pack.modules import LayerNorm
 
 

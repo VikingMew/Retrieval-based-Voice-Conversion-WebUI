@@ -1,4 +1,6 @@
-import os, sys, traceback
+import os
+import sys
+import traceback
 
 # device=sys.argv[1]
 n_part = int(sys.argv[2])
@@ -10,10 +12,10 @@ else:
     exp_dir = sys.argv[5]
     os.environ["CUDA_VISIBLE_DEVICES"] = str(i_gpu)
 
+import numpy as np
+import soundfile as sf
 import torch
 import torch.nn.functional as F
-import soundfile as sf
-import numpy as np
 from fairseq import checkpoint_utils
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")

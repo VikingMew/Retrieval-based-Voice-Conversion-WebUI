@@ -1,5 +1,6 @@
-from infer_pack.models_onnx_moess import SynthesizerTrnMs256NSFsidM
 import torch
+
+from infer_pack.models_onnx_moess import SynthesizerTrnMs256NSFsidM
 
 person = "Shiroha/shiroha.pth"
 exported_path = "model.onnx"

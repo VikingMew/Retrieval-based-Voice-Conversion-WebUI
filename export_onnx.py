@@ -1,6 +1,7 @@
-from infer_pack.models_onnx_moess import SynthesizerTrnMs256NSFsidM
-from infer_pack.models_onnx import SynthesizerTrnMs256NSFsidO
 import torch
+
+from infer_pack.models_onnx import SynthesizerTrnMs256NSFsidO
+from infer_pack.models_onnx_moess import SynthesizerTrnMs256NSFsidM
 
 if __name__ == "__main__":
     MoeVS = True  # 模型是否为MoeVoiceStudio（原MoeSS）使用

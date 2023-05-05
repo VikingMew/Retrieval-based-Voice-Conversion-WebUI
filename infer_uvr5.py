@@ -1,15 +1,23 @@
-import os, sys, torch, warnings, pdb
+import os
+import pdb
+import sys
+import warnings
+
+import torch
 
 warnings.filterwarnings("ignore")
-import librosa
+import hashlib
 import importlib
+import math
+
+import librosa
 import numpy as np
-import hashlib, math
-from tqdm import tqdm
-from uvr5_pack.lib_v5 import spec_utils
-from uvr5_pack.utils import _get_name_params, inference
-from uvr5_pack.lib_v5.model_param_init import ModelParameters
 from scipy.io import wavfile
+from tqdm import tqdm
+
+from uvr5_pack.lib_v5 import spec_utils
+from uvr5_pack.lib_v5.model_param_init import ModelParameters
+from uvr5_pack.utils import _get_name_params, inference
 
 
 class _audio_pre_:

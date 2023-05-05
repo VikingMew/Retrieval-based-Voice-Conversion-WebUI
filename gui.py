@@ -1,20 +1,28 @@
-import os, sys
+import os
+import sys
 
 now_dir = os.getcwd()
 sys.path.append(now_dir)
-import PySimpleGUI as sg
-import sounddevice as sd
+import threading
+import time
+
+import faiss
+import librosa
 import noisereduce as nr
 import numpy as np
-from fairseq import checkpoint_utils
-import librosa, torch, pyworld, faiss, time, threading
+import PySimpleGUI as sg
+import pyworld
+import scipy.signal as signal
+import sounddevice as sd
+import torch
 import torch.nn.functional as F
 import torchaudio.transforms as tat
-import scipy.signal as signal
+from fairseq import checkpoint_utils
 
-# import matplotlib.pyplot as plt
-from infer_pack.models import SynthesizerTrnMs256NSFsid, SynthesizerTrnMs256NSFsid_nono
 from i18n import I18nAuto
+# import matplotlib.pyplot as plt
+from infer_pack.models import (SynthesizerTrnMs256NSFsid,
+                               SynthesizerTrnMs256NSFsid_nono)
 
 i18n = I18nAuto()
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")

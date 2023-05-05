@@ -1,8 +1,15 @@
-import numpy as np, parselmouth, torch, pdb
+import os
+import pdb
+import traceback
 from time import time as ttime
-import torch.nn.functional as F
+
+import faiss
+import numpy as np
+import parselmouth
+import pyworld
 import scipy.signal as signal
-import pyworld, os, traceback, faiss
+import torch
+import torch.nn.functional as F
 from scipy import signal
 
 bh, ah = signal.butter(N=5, Wn=48, btype="high", fs=16000)
